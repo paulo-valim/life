@@ -6,6 +6,8 @@
 # Unborn Cells:
 # Each cell with three neighbors becomes populated.
 
+# [{1, 1}, {2, 1}, {3, 1}, {1, 2}, {2, 2}, {3, 2}, {1, 3}, {2, 3}, {3, 3}]
+
 # {1, 1}  {2, 1}  {3, 1}
 # {1, 2}  {2, 2}  {3, 2}
 # {1, 3}  {2, 3}  {3, 3}
@@ -69,7 +71,7 @@ defmodule Life.Grid do
     end
   end
 
-  defp read(grid, point), do: Map.get(grid, point, false)
+  # defp read(grid, point), do: Map.get(grid, point, false)
 
   # def next_grid(grid) do
   #   new_values =
@@ -85,8 +87,7 @@ defmodule Life.Grid do
     end
   end
 
-  def show(grid), do: :feature_not_implemented
-  # show one cell
-  # show one row
-  # show one grid
+  def show(grid) do
+    for y <- 1..3, do: for(x <- 1..3, do: if(grid[{x, y}], do: "X", else: "O")) |> IO.inspect()
+  end
 end
